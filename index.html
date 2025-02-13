@@ -11,6 +11,9 @@
     
     <!-- Babel for JSX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -117,7 +120,13 @@
                         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="prose prose-lg max-w-none">
                                 <p className="text-lg text-gray-400 leading-relaxed mb-8">
-                                    An accomplished executive with over a decade of experience leading organizations in the clean energy sector. My approach combines technical expertise with a deep commitment to ethical innovation and inclusive development practices. I believe in fostering environments where technology serves humanity's best interests through collaborative problem-solving and responsible deployment.
+                                    I am a seasoned CX executive with extensive experience leading high-performing teams in the technology and AI industries. With a background in both engineering and customer-centric leadership, I bridge the gap between technical excellence and customer experience.
+                                </p>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-8">
+                                    I am passionate about building strong, collaborative relationships with clients, anticipating their needs, and providing scalable solutions that empower their businesses. My leadership philosophy emphasizes creating a culture of innovation, inclusivity, and continuous learning, enabling my team to exceed customer expectations and deliver world-class technical support.
+                                </p>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-8">
+                                    With a data-driven approach, I strive to continuously improve processes, optimize workflows, and enhance the overall customer journey. I am deeply committed to driving the long-term success of our clients while fostering the growth and development of my team in an ever-evolving AI landscape.
                                 </p>
                                 <p className="text-lg text-gray-400 leading-relaxed mb-16">
                                     When I'm not immersed in technology, I enjoy enhancing my mental well-being by practicing mindfulness meditation, deepening my yoga practice, and prioritizing self-care. My goal is to improve my focus and maintain a healthier work-life balance, which I believe is essential for making thoughtful, ethical decisions in technology leadership.
@@ -211,31 +220,58 @@
                         </div>
                     </section>
 
-                   {/* Contact Section */}
-                   <section id="contact" className="py-20">
-                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                            <h2 className="text-3xl font-bold mb-8">Connect</h2>
-                            <p className="text-lg text-gray-400 mb-8">
-                                Interested in discussing ethical technology leadership or collaborative opportunities in technical innovation?
-                            </p>
-                            <a 
-                                href="mailto:earthysf@gmail.com" 
-                                className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 px-8 py-3 rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 transform hover:-translate-y-1"
-                            >
-                                Get in Touch
-                            </a>
+                    {/* Contact Section with Font Awesome icons */}
+                    <section id="contact" className="py-20 bg-gray-900/50">
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+                                    Let's Connect
+                                </h2>
+                                <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                                    Interested in discussing ethical technology leadership or collaborative opportunities in technical innovation?
+                                </p>
+                            </div>
+                            
+                            <div className="flex flex-col md:flex-row justify-center gap-6 max-w-3xl mx-auto">
+                                <a 
+                                    href="mailto:earthysf@gmail.com" 
+                                    className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-700 hover:border-gray-600 group"
+                                >
+                                    <i className="fas fa-envelope w-5 h-5 text-blue-400 group-hover:text-blue-300"></i>
+                                    <span className="text-gray-300 group-hover:text-white">Email Me</span>
+                                </a>
+                                
+                                <a 
+                                    href="https://www.linkedin.com/in/heather-menzies/"
+                                    className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-700 hover:border-gray-600 group"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="fab fa-linkedin w-5 h-5 text-blue-400 group-hover:text-blue-300"></i>
+                                    <span className="text-gray-300 group-hover:text-white">LinkedIn Profile</span>
+                                </a>
+                                
+                                <a 
+                                    href="https://drive.google.com/file/d/1dQvk7jkOBbCPgNE-USWW4ABuyFDR3x5v/view"
+                                    className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-700 hover:border-gray-600 group"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="fas fa-file-alt w-5 h-5 text-blue-400 group-hover:text-blue-300"></i>
+                                    <span className="text-gray-300 group-hover:text-white">View Resume</span>
+                                </a>
+                            </div>
                         </div>
                     </section>
 
-                    {/* Footer */}
+                    {/* Footer with proper spacing */}
                     <footer className="py-12 border-t border-gray-800">
                         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex justify-between items-center">
+                            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                                 <p className="text-sm text-gray-400">© 2025 Heather Menzies</p>
-                                <div className="flex space-x-6">
-                                    <NavLink href="https://www.linkedin.com/in/heather-menzies/">LinkedIn</NavLink>
-                                    <NavLink href="https://drive.google.com/file/d/1dQvk7jkOBbCPgNE-USWW4ABuyFDR3x5v/view">Resume</NavLink>
-                                </div>
+                                <p className="text-sm text-gray-500">
+                                    Based in San Francisco, CA · Open to Remote Opportunities
+                                </p>
                             </div>
                         </div>
                     </footer>
