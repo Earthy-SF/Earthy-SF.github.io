@@ -96,9 +96,16 @@
                     }`}>
                         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="flex justify-between h-16 items-center">
-                                <NavLink href="#" className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 flex items-center hover:opacity-80 transition-opacity">
-                                    <i className="fas fa-file-lines mr-2"></i>
-                                    HM
+                                <NavLink 
+                                    href="#" 
+                                    className="group relative px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-800/50"
+                                >
+                                    <div className="flex items-center text-lg font-semibold">
+                                        <i className="fas fa-file-lines mr-2 text-blue-400 group-hover:text-blue-300 transition-colors"></i>
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 group-hover:from-blue-300 group-hover:to-indigo-300">
+                                            HM
+                                        </span>
+                                    </div>
                                 </NavLink>
                                 <div className="flex space-x-8">
                                     <NavLink href="#">Home</NavLink>
