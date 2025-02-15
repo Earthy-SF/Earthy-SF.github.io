@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Heather Menzies - Technology leader focused on ethical AI and customer success" />
+    <meta name="keywords" content="technology leadership, customer success, AI ethics, technical innovation" />
     <title>Heather Menzies - Portfolio</title>
     
     <!-- Favicon -->
@@ -19,6 +21,9 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- Framer Motion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.js"></script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,43 +44,137 @@
 
     <!-- App Component -->
     <script type="text/babel">
+        // Enhanced NavLink with animated underline and focus states
         const NavLink = ({ href, children }) => (
             <a 
                 href={href}
-                className="text-gray-400 hover:text-gray-200 transition-colors duration-300 text-sm"
+                className="relative text-gray-400 hover:text-gray-200 transition-all duration-300 text-sm group px-2 py-1"
             >
-                {children}
+                <span className="relative z-10">
+                    {children}
+                </span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 
+                               transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <span className="absolute inset-0 bg-gray-700/0 group-hover:bg-gray-700/10 
+                               rounded-md transition-colors duration-300" />
             </a>
         );
 
-        const Card = ({ title, children }) => (
-            <div className="relative p-1 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 group transition-all duration-500 hover:-translate-y-1">
-                <div className="bg-gray-900 p-6 rounded-lg h-full">
-                    <h3 className="font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                        {title}
-                    </h3>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                        {children}
-                    </p>
-                </div>
-            </div>
-        );
+        // Enhanced Card with intersection observer and hover effects
+        const Card = ({ title, children }) => {
+            const [isVisible, setIsVisible] = React.useState(false);
+            
+            React.useEffect(() => {
+                const observer = new IntersectionObserver(
+                    ([entry]) => {
+                        if (entry.isIntersecting) {
+                            setIsVisible(true);
+                        }
+                    },
+                    { threshold: 0.1 }
+                );
 
-        const TimelineCard = ({ title, period, company, children }) => (
-            <div className="relative pl-8 py-6">
-                <div className="absolute left-0 top-8 w-3 h-3 bg-indigo-500 rounded-full" />
-                <div className="absolute left-[5px] top-8 bottom-0 w-px bg-gradient-to-b from-indigo-500 to-transparent" />
-                <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 transition-all duration-300">
-                    <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                        {title}
-                    </h3>
-                    <p className="text-gray-400 mb-4">{company} • {period}</p>
-                    <ul className="space-y-3 text-gray-400">
-                        {children}
-                    </ul>
+                const element = document.getElementById(`card-${title}`);
+                if (element) {
+                    observer.observe(element);
+                }
+
+                return () => {
+                    if (element) {
+                        observer.unobserve(element);
+                    }
+                };
+            }, [title]);
+
+            return (
+                <div 
+                    id={`card-${title}`}
+                    className={`relative p-1 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 
+                              group transition-all duration-500 hover:-translate-y-1 hover:scale-102
+                              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '100ms' }}
+                >
+                    <div className="bg-gray-900 p-6 rounded-lg h-full relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/5 to-indigo-400/5 
+                                      opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+                        
+                        <h3 className="font-semibold mb-4 text-transparent bg-clip-text 
+                                     bg-gradient-to-r from-blue-400 to-indigo-400 relative z-10">
+                            {title}
+                        </h3>
+                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors 
+                                    duration-300 relative z-10">
+                            {children}
+                        </p>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        };
+
+        // Enhanced TimelineCard with animated elements and intersection observer
+        const TimelineCard = ({ title, period, company, children }) => {
+            const [isVisible, setIsVisible] = React.useState(false);
+            
+            React.useEffect(() => {
+                const observer = new IntersectionObserver(
+                    ([entry]) => {
+                        if (entry.isIntersecting) {
+                            setIsVisible(true);
+                        }
+                    },
+                    { threshold: 0.1 }
+                );
+
+                const element = document.getElementById(`timeline-${title}`);
+                if (element) {
+                    observer.observe(element);
+                }
+
+                return () => {
+                    if (element) {
+                        observer.unobserve(element);
+                    }
+                };
+            }, [title]);
+
+            return (
+                <div 
+                    id={`timeline-${title}`}
+                    className={`relative pl-8 py-6 transition-all duration-500
+                              ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                >
+                    <div className={`absolute left-0 top-8 w-3 h-3 bg-indigo-500 rounded-full
+                                   transition-all duration-500 transform
+                                   ${isVisible ? 'scale-100' : 'scale-0'}`} />
+                    
+                    <div className={`absolute left-[5px] top-8 bottom-0 w-px
+                                   bg-gradient-to-b from-indigo-500 to-transparent
+                                   transition-all duration-700 transform origin-top
+                                   ${isVisible ? 'scale-y-100' : 'scale-y-0'}`} />
+                    
+                    <div className="bg-gray-800 p-6 rounded-xl hover:bg-gray-750 
+                                  transition-all duration-300 transform hover:-translate-y-1
+                                  hover:shadow-lg hover:shadow-indigo-500/10">
+                        <h3 className="text-xl font-semibold text-transparent bg-clip-text 
+                                     bg-gradient-to-r from-blue-400 to-indigo-400">
+                            {title}
+                        </h3>
+                        <p className="text-gray-400 mb-4">{company} • {period}</p>
+                        <ul className="space-y-3 text-gray-400">
+                            {React.Children.map(children, (child, index) => (
+                                <li 
+                                    className={`transition-all duration-500 delay-${index * 100}
+                                              ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
+                                >
+                                    {child}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            );
+        };
 
         function App() {
             const [isScrolled, setIsScrolled] = React.useState(false);
@@ -121,7 +220,7 @@
                     </nav>
 
                     {/* Hero Section */}
-                    <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+                    <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 animate-fade-in">
                         <div className="max-w-5xl mx-auto text-center">
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
                                 Heather Menzies
@@ -179,13 +278,25 @@
                                         <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
                                             Technical Excellence
                                         </h3>
-                                        <p className="text-gray-400">Committed to advancing cutting-edge technology while maintaining rigorous safety and ethical standards.</p>
+                                        <p className="text-gray-400">Committed to advancing cutting-edge technology while maintaining rigorous safety and ethical standards in AI development and deployment.</p>
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
                                             Collaborative Progress
                                         </h3>
-                                        <p className="text-gray-400">Fostering open cooperation and knowledge sharing to ensure technology benefits all of humanity.</p>
+                                        <p className="text-gray-400">Fostering open cooperation and knowledge sharing to ensure technology benefits all of humanity through responsible innovation.</p>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
+                                            Data-Driven Leadership
+                                        </h3>
+                                        <p className="text-gray-400">Leveraging advanced analytics and machine learning to optimize processes while maintaining robust monitoring and safety measures.</p>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
+                                            AI Safety & Ethics
+                                        </h3>
+                                        <p className="text-gray-400">Championing responsible AI development with a focus on safety, transparency, and positive societal impact through systematic risk assessment and mitigation.</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,8 +353,8 @@
                         </div>
                     </section>
 
-{/* Growth KPIs Section */}
-<section id="kpis" className="py-20 bg-gray-900">
+                    {/* Growth KPIs Section */}
+                    <section id="kpis" className="py-20 bg-gray-900">
                         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                             <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
                                 Growth KPIs & Success Metrics
