@@ -242,28 +242,102 @@
                         </div>
                     </section>
 
-                    {/* Growth KPIs Section */}
-                    <section id="kpis" className="py-20 bg-gray-900">
+{/* Growth KPIs Section */}
+<section id="kpis" className="py-20 bg-gray-900">
                         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 className="text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+                            <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
                                 Growth KPIs & Success Metrics
                             </h2>
-                            <div className="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                                <ul className="text-gray-400 space-y-2 max-w-2xl mx-auto">
-                                    <li>Expansion Revenue (Upsell & Cross-sell) Rate: +34%</li>
-                                    <li>Churn Rate: -20%</li>
-                                    <li>CS Team Efficiency: +42%</li>
-                                    <li>Escalation Rate: -31%</li>
-                                    <li>Customer Retention Rate: +12%</li>
-                                    <li>Net Promoter Score (NPS): +30%</li>
-                                    <li>Customer Satisfaction (CSAT) Score: +30%</li>
-                                    <li>Customer Lifetime Value (CLTV): +52%</li>
-                                    <li>Onboarding Success Rate: +16%</li>
-                                    <li>First Contact Resolution Rate (FCRR): +18%</li>
-                                    <li>Customer Heath Score (CHS): +12%</li>
-                                    <li>Time to Value (TTV): +22%</li>
-                                    <li>Customer Advocacy (Referral Rate): +55%</li>
-                                </ul>
+                            <div className="bg-gray-800 p-12 rounded-xl border border-gray-700 shadow-lg">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                                    {/* Revenue & Efficiency Metrics */}
+                                    <div className="space-y-6">
+                                        <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-6">
+                                            Revenue & Efficiency
+                                        </h3>
+                                        <ul className="space-y-4">
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-blue-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Expansion Revenue Rate:</span>
+                                                    <span className="text-green-400 ml-2">+34%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-blue-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Churn Rate:</span>
+                                                    <span className="text-green-400 ml-2">-20%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-blue-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">CS Team Efficiency:</span>
+                                                    <span className="text-green-400 ml-2">+42%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-blue-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Customer Lifetime Value:</span>
+                                                    <span className="text-green-400 ml-2">+52%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-blue-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Time to Value:</span>
+                                                    <span className="text-green-400 ml-2">+22%</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    {/* Customer Success Metrics */}
+                                    <div className="space-y-6">
+                                        <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-6">
+                                            Customer Success
+                                        </h3>
+                                        <ul className="space-y-4">
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-indigo-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Customer Satisfaction:</span>
+                                                    <span className="text-green-400 ml-2">+30%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-indigo-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Net Promoter Score:</span>
+                                                    <span className="text-green-400 ml-2">+30%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-indigo-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Customer Health Score:</span>
+                                                    <span className="text-green-400 ml-2">+12%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-indigo-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">First Contact Resolution:</span>
+                                                    <span className="text-green-400 ml-2">+18%</span>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="inline-block w-2 h-2 mt-2 mr-3 bg-indigo-400 rounded-full"></span>
+                                                <div>
+                                                    <span className="font-medium text-gray-300">Customer Advocacy:</span>
+                                                    <span className="text-green-400 ml-2">+55%</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
